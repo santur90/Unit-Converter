@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>km to miles converter — fast & accurate | Unit Converter</title>
+    <meta name="description" content="This km to miles converter provides an instant and accurate way to convert kilometers (km) to miles (mi). 1 km = 0.621371 miles. Use the calculator below for quick results.">
+    <meta name="keywords" content="km to miles, kilometer to miles, km to mi converter, distance converter">
+    <link rel="canonical" href="https://santur90.github.io/Unit-Converter/km-to-miles.html">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "KM to Miles Converter",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "All",
+      "description": "Fast and accurate kilometers to miles converter",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .converter {
+            display: grid;
+            gap: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        input {
+            padding: 12px 16px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #43e97b;
+        }
+        .swap-btn {
+            background: #43e97b;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .swap-btn:hover {
+            background: #2dd65f;
+        }
+        .formula {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #43e97b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .container { padding: 24px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>km to miles converter (km → mi)</h1>
+        <p class="description">
+            This km to miles converter provides an instant and accurate way to convert kilometers (km) to miles (mi). 
+            1 km = 0.621371 miles. Use the calculator below for quick results.
+        </p>
+        
+        <div class="converter">
+            <div class="input-group">
+                <label for="km">Kilometers (km)</label>
+                <input type="number" id="km" placeholder="Enter kilometers" step="any" autofocus>
+            </div>
+            
+            <button class="swap-btn" onclick="swap()" title="Swap units">⇅</button>
+            
+            <div class="input-group">
+                <label for="miles">Miles (mi)</label>
+                <input type="number" id="miles" placeholder="Enter miles" step="any">
+            </div>
+        </div>
+        
+        <div class="formula">
+            <strong>Formula:</strong> 1 km = 0.621371 mi | 1 mi = 1.60934 km
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to all converters</a>
+        </div>
+    </div>
+    
+    <script>
+        const kmInput = document.getElementById('km');
+        const milesInput = document.getElementById('miles');
+        
+        // km to miles conversion
+        kmInput.addEventListener('input', function() {
+            const km = parseFloat(this.value);
+            if (!isNaN(km)) {
+                milesInput.value = (km * 0.621371).toFixed(6);
+            } else {
+                milesInput.value = '';
+            }
+        });
+        
+        // miles to km conversion
+        milesInput.addEventListener('input', function() {
+            const miles = parseFloat(this.value);
+            if (!isNaN(miles)) {
+                kmInput.value = (miles * 1.60934).toFixed(6);
+            } else {
+                kmInput.value = '';
+            }
+        });
+        
+        // Swap function
+        function swap() {
+            const temp = kmInput.value;
+            kmInput.value = milesInput.value;
+            milesInput.value = temp;
+        }
+        
+        // Auto-parse input
+        kmInput.addEventListener('paste', function(e) {
+            setTimeout(() => {
+                const text = this.value;
+                const match = text.match(/(\d+\.?\d*)\s*(km|kilometer)/i);
+                if (match) {
+                    this.value = match[1];
+                    this.dispatchEvent(new Event('input'));
+                }
+            }, 10);
+        });
+    </script>
+</body>
+</html>

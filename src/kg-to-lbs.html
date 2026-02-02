@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kg to lbs converter — fast & accurate | Unit Converter</title>
+    <meta name="description" content="This kg to lbs converter provides an instant and accurate way to convert kilograms (kg) to pounds (lbs). 1 kg = 2.20462 pounds. Use the calculator below for quick results.">
+    <meta name="keywords" content="kg to lbs, kilogram to pound, kg to pounds converter, weight converter">
+    <link rel="canonical" href="https://santur90.github.io/Unit-Converter/kg-to-lbs.html">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "KG to LBS Converter",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "All",
+      "description": "Fast and accurate kilogram to pounds converter",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .converter {
+            display: grid;
+            gap: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        input {
+            padding: 12px 16px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #f5576c;
+        }
+        .swap-btn {
+            background: #f5576c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .swap-btn:hover {
+            background: #e03e54;
+        }
+        .formula {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #f5576c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .container { padding: 24px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>kg to lbs converter (kg → lbs)</h1>
+        <p class="description">
+            This kg to lbs converter provides an instant and accurate way to convert kilograms (kg) to pounds (lbs). 
+            1 kg = 2.20462 pounds. Use the calculator below for quick results.
+        </p>
+        
+        <div class="converter">
+            <div class="input-group">
+                <label for="kg">Kilograms (kg)</label>
+                <input type="number" id="kg" placeholder="Enter kilograms" step="any" autofocus>
+            </div>
+            
+            <button class="swap-btn" onclick="swap()" title="Swap units">⇅</button>
+            
+            <div class="input-group">
+                <label for="lbs">Pounds (lbs)</label>
+                <input type="number" id="lbs" placeholder="Enter pounds" step="any">
+            </div>
+        </div>
+        
+        <div class="formula">
+            <strong>Formula:</strong> 1 kg = 2.20462 lbs | 1 lb = 0.453592 kg
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to all converters</a>
+        </div>
+    </div>
+    
+    <script>
+        const kgInput = document.getElementById('kg');
+        const lbsInput = document.getElementById('lbs');
+        
+        // kg to lbs conversion
+        kgInput.addEventListener('input', function() {
+            const kg = parseFloat(this.value);
+            if (!isNaN(kg)) {
+                lbsInput.value = (kg * 2.20462).toFixed(6);
+            } else {
+                lbsInput.value = '';
+            }
+        });
+        
+        // lbs to kg conversion
+        lbsInput.addEventListener('input', function() {
+            const lbs = parseFloat(this.value);
+            if (!isNaN(lbs)) {
+                kgInput.value = (lbs * 0.453592).toFixed(6);
+            } else {
+                kgInput.value = '';
+            }
+        });
+        
+        // Swap function
+        function swap() {
+            const temp = kgInput.value;
+            kgInput.value = lbsInput.value;
+            lbsInput.value = temp;
+        }
+        
+        // Auto-parse input
+        kgInput.addEventListener('paste', function(e) {
+            setTimeout(() => {
+                const text = this.value;
+                const match = text.match(/(\d+\.?\d*)\s*(kg|kilogram)/i);
+                if (match) {
+                    this.value = match[1];
+                    this.dispatchEvent(new Event('input'));
+                }
+            }, 10);
+        });
+    </script>
+</body>
+</html>

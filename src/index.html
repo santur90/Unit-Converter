@@ -1,136 +1,191 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>单位换算 - Unit Converter</title>
-    <meta name="description" content="免费在线单位换算工具，支持长度、重量、温度、体积、面积、速度、数据存储、燃油效率、功率、压力、时间、货币等12类单位转换，提供中文、英文、法文、西班牙文四种语言">
-    <meta name="keywords" content="单位换算,单位转换,unit converter,长度转换,重量转换,温度转换,货币换算,在线工具">
-    <link rel="stylesheet" href="styles.css?v=20260202b">
+    <title>Unit Converter - Fast & Accurate Conversion Tools</title>
+    <meta name="description" content="Free online unit converter tools. Convert length, weight, temperature, volume and more. Fast, accurate, and easy to use.">
+    <meta name="keywords" content="unit converter, cm to inch, kg to lbs, celsius to fahrenheit, meters to feet, km to miles">
+    <link rel="canonical" href="https://santur90.github.io/Unit-Converter/">
+    <meta name="google-site-verification" content="c18378261e0ca140">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .section-title {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .converters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .converter-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .converter-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 60px rgba(0,0,0,0.3);
+        }
+        
+        .converter-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .converter-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .converter-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .all-converters-link {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .btn-all-converters {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .btn-all-converters:hover {
+            background: #f0f0f0;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .converters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-            <select id="language-select">
-                <option value="zh">中文</option>
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="es">Español</option>
-            </select>
-        </div>
-
-        <!-- Header -->
-        <header class="header">
-            <h1 id="app-title">单位换算</h1>
-            <p class="subtitle" id="app-subtitle">Unit Converter</p>
+        <header>
+            <h1>Unit Converter</h1>
+            <p class="subtitle">Fast, accurate, and easy-to-use conversion tools</p>
         </header>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Category Selector -->
-            <div class="category-selector">
-                <button class="category-btn active" data-category="length">长度</button>
-                <button class="category-btn" data-category="weight">重量</button>
-                <button class="category-btn" data-category="temperature">温度</button>
-                <button class="category-btn" data-category="volume">体积</button>
-                <button class="category-btn" data-category="area">面积</button>
-                <button class="category-btn" data-category="speed">速度</button>
-                <button class="category-btn" data-category="dataStorage">数据存储</button>
-                <button class="category-btn" data-category="fuelMileage">燃油效率</button>
-                <button class="category-btn" data-category="power">功率</button>
-                <button class="category-btn" data-category="pressure">压力</button>
-                <button class="category-btn" data-category="time">时间</button>
-                <button class="category-btn" data-category="currency">货币</button>
-            </div>
-
-            <!-- Converter Section -->
-            <div class="converter-section">
-                <div class="converter-box">
-                    <div class="input-group">
-                        <label for="input-value" id="label-input">输入值</label>
-                        <input 
-                            type="number" 
-                            id="input-value" 
-                            placeholder="输入数值"
-                            value="1"
-                            step="any"
-                        >
-                    </div>
-
-                    <div class="unit-group">
-                        <div class="unit-select">
-                            <label for="from-unit" id="label-from">从</label>
-                            <select id="from-unit"></select>
-                        </div>
-
-                        <button class="swap-btn" id="swap-btn" title="交换单位">
-                            ⇄
-                        </button>
-
-                        <div class="unit-select">
-                            <label for="to-unit" id="label-to">到</label>
-                            <select id="to-unit"></select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="result-box">
-                    <div class="result-display">
-                        <div class="result-value" id="result-value">0</div>
-                        <div class="result-unit" id="result-unit"></div>
-                    </div>
-                    <button class="copy-btn" id="copy-btn" title="复制结果">
-                        📋 <span id="btn-copy">复制</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- History Section -->
-            <div class="history-section">
-                <h3 id="label-history">转换历史</h3>
-                <div class="history-list" id="history-list">
-                    <p class="empty-state" id="empty-history">暂无历史记录</p>
-                </div>
-                <button class="clear-history-btn" id="clear-history-btn">清空历史</button>
-            </div>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2026 Unit Converter. Made with ❤️</p>
-            <div class="share-buttons">
-                <button class="share-btn" id="copy-link-btn" title="Copy Link" onclick="window.shareButtons?.copyLink ? window.shareButtons.copyLink() : window.prompt('Copy link:', window.location.href)">🔗</button>
-                <button class="share-btn" id="share-twitter-btn" title="Share on X" onclick="window.shareButtons?.shareToTwitter ? window.shareButtons.shareToTwitter() : window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), '_blank')">𝕏</button>
-                <button class="share-btn" id="share-reddit-btn" title="Share on Reddit" onclick="window.shareButtons?.shareToReddit ? window.shareButtons.shareToReddit() : window.open('https://reddit.com/submit?url=' + encodeURIComponent(window.location.href), '_blank')">📱</button>
-                <button class="share-btn" id="share-wechat-btn" title="Share on WeChat" onclick="window.shareButtons?.shareToWeChat ? window.shareButtons.shareToWeChat() : window.open('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(window.location.href), '_blank')">💬</button>
-            </div>
+        
+        <h2 class="section-title">🔥 Popular Converters</h2>
+        
+        <div class="converters-grid">
+            <a href="cm-to-inch.html" class="converter-card">
+                <span class="converter-icon">📏</span>
+                <h3 class="converter-title">cm to inch</h3>
+                <p class="converter-desc">Convert centimeters to inches instantly. 1 cm = 0.393701 in</p>
+            </a>
+            
+            <a href="kg-to-lbs.html" class="converter-card">
+                <span class="converter-icon">⚖️</span>
+                <h3 class="converter-title">kg to lbs</h3>
+                <p class="converter-desc">Convert kilograms to pounds quickly. 1 kg = 2.20462 lbs</p>
+            </a>
+            
+            <a href="celsius-to-fahrenheit.html" class="converter-card">
+                <span class="converter-icon">🌡️</span>
+                <h3 class="converter-title">°C to °F</h3>
+                <p class="converter-desc">Convert Celsius to Fahrenheit accurately. Formula: °F = (°C × 9/5) + 32</p>
+            </a>
+            
+            <a href="m-to-ft.html" class="converter-card">
+                <span class="converter-icon">📐</span>
+                <h3 class="converter-title">m to ft</h3>
+                <p class="converter-desc">Convert meters to feet with precision. 1 m = 3.28084 ft</p>
+            </a>
+            
+            <a href="km-to-miles.html" class="converter-card">
+                <span class="converter-icon">🛣️</span>
+                <h3 class="converter-title">km to miles</h3>
+                <p class="converter-desc">Convert kilometers to miles easily. 1 km = 0.621371 mi</p>
+            </a>
+            
+            <a href="index-full.html" class="converter-card">
+                <span class="converter-icon">🔧</span>
+                <h3 class="converter-title">All-in-One Converter</h3>
+                <p class="converter-desc">Access all 12 categories: length, weight, temperature, volume, and more</p>
+            </a>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Unit Converter. All rights reserved.</p>
         </footer>
     </div>
-
-    <!-- PayPal Tip Jar (Fixed Position) -->
-    <div class="tip-jar" id="tip-jar">
-        <button class="tip-jar-toggle" id="tip-jar-toggle" title="Support us">
-            💝
-        </button>
-        <div class="tip-jar-content" id="tip-jar-content" style="display: none;">
-            <div class="tip-jar-header">
-                <h4>Support Us ☕</h4>
-                <button class="tip-jar-close" id="tip-jar-close">✕</button>
-            </div>
-            <p class="tip-jar-text">Enjoy this tool? Buy us a coffee!</p>
-            <div class="tip-jar-qr">
-                <!-- PayPal Tip Jar QR Code -->
-                <img src="./Tip.png" alt="PayPal QR Code" class="qr-img">
-            <p class="tip-jar-hint">Scan to support our work</p>
-        </div>
-    </div>
-
-    <script src="currency-api.js?v=20260202b"></script>
-    <script src="i18n.js?v=20260202b"></script>
-    <script src="converters.js?v=20260202b"></script>
-    <script src="app.js?v=20260202b"></script>
-    <script src="tip-jar.js?v=20260202b"></script>
-    <script src="share.js?v=20260202b"></script>
 </body>
 </html>

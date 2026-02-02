@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cm to inch converter — fast & accurate | Unit Converter</title>
+    <meta name="description" content="This cm to inch converter provides an instant and accurate way to convert centimeters (cm) to inches (in). 1 cm = 0.393701 inches. Use the calculator below for quick results.">
+    <meta name="keywords" content="cm to inch, centimeter to inch, cm to in converter, centimeters to inches">
+    <link rel="canonical" href="https://santur90.github.io/Unit-Converter/cm-to-inch.html">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "CM to Inch Converter",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "All",
+      "description": "Fast and accurate centimeter to inch converter",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .converter {
+            display: grid;
+            gap: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        input {
+            padding: 12px 16px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .swap-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .swap-btn:hover {
+            background: #5568d3;
+        }
+        .formula {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .container { padding: 24px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>cm to inch converter (cm → in)</h1>
+        <p class="description">
+            This cm to inch converter provides an instant and accurate way to convert centimeters (cm) to inches (in). 
+            1 cm = 0.393701 inches. Use the calculator below for quick results.
+        </p>
+        
+        <div class="converter">
+            <div class="input-group">
+                <label for="cm">Centimeters (cm)</label>
+                <input type="number" id="cm" placeholder="Enter centimeters" step="any" autofocus>
+            </div>
+            
+            <button class="swap-btn" onclick="swap()" title="Swap units">⇅</button>
+            
+            <div class="input-group">
+                <label for="inch">Inches (in)</label>
+                <input type="number" id="inch" placeholder="Enter inches" step="any">
+            </div>
+        </div>
+        
+        <div class="formula">
+            <strong>Formula:</strong> 1 cm = 0.393701 in | 1 in = 2.54 cm
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to all converters</a>
+        </div>
+    </div>
+    
+    <script>
+        const cmInput = document.getElementById('cm');
+        const inchInput = document.getElementById('inch');
+        
+        // cm to inch conversion
+        cmInput.addEventListener('input', function() {
+            const cm = parseFloat(this.value);
+            if (!isNaN(cm)) {
+                inchInput.value = (cm * 0.393701).toFixed(6);
+            } else {
+                inchInput.value = '';
+            }
+        });
+        
+        // inch to cm conversion
+        inchInput.addEventListener('input', function() {
+            const inch = parseFloat(this.value);
+            if (!isNaN(inch)) {
+                cmInput.value = (inch * 2.54).toFixed(6);
+            } else {
+                cmInput.value = '';
+            }
+        });
+        
+        // Swap function
+        function swap() {
+            const temp = cmInput.value;
+            cmInput.value = inchInput.value;
+            inchInput.value = temp;
+        }
+        
+        // Auto-parse input like "180 cm in inch"
+        cmInput.addEventListener('paste', function(e) {
+            setTimeout(() => {
+                const text = this.value;
+                const match = text.match(/(\d+\.?\d*)\s*(cm|centimeter)/i);
+                if (match) {
+                    this.value = match[1];
+                    this.dispatchEvent(new Event('input'));
+                }
+            }, 10);
+        });
+    </script>
+</body>
+</html>

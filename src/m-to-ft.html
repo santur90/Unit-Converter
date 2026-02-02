@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m to ft converter — meters to feet | Unit Converter</title>
+    <meta name="description" content="This m to ft converter provides an instant and accurate way to convert meters (m) to feet (ft). 1 meter = 3.28084 feet. Use the calculator below for quick results.">
+    <meta name="keywords" content="m to ft, meters to feet, meter to feet converter, length converter">
+    <link rel="canonical" href="https://santur90.github.io/Unit-Converter/m-to-ft.html">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Meters to Feet Converter",
+      "applicationCategory": "Calculator",
+      "operatingSystem": "All",
+      "description": "Fast and accurate meters to feet converter",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .converter {
+            display: grid;
+            gap: 20px;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        input {
+            padding: 12px 16px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            outline: none;
+            border-color: #4facfe;
+        }
+        .swap-btn {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .swap-btn:hover {
+            background: #2d96ec;
+        }
+        .formula {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 480px) {
+            .container { padding: 24px; }
+            h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>m to ft converter (m → ft)</h1>
+        <p class="description">
+            This m to ft converter provides an instant and accurate way to convert meters (m) to feet (ft). 
+            1 meter = 3.28084 feet. Use the calculator below for quick results.
+        </p>
+        
+        <div class="converter">
+            <div class="input-group">
+                <label for="meters">Meters (m)</label>
+                <input type="number" id="meters" placeholder="Enter meters" step="any" autofocus>
+            </div>
+            
+            <button class="swap-btn" onclick="swap()" title="Swap units">⇅</button>
+            
+            <div class="input-group">
+                <label for="feet">Feet (ft)</label>
+                <input type="number" id="feet" placeholder="Enter feet" step="any">
+            </div>
+        </div>
+        
+        <div class="formula">
+            <strong>Formula:</strong> 1 m = 3.28084 ft | 1 ft = 0.3048 m
+        </div>
+        
+        <div class="back-link">
+            <a href="index.html">← Back to all converters</a>
+        </div>
+    </div>
+    
+    <script>
+        const metersInput = document.getElementById('meters');
+        const feetInput = document.getElementById('feet');
+        
+        // meters to feet conversion
+        metersInput.addEventListener('input', function() {
+            const meters = parseFloat(this.value);
+            if (!isNaN(meters)) {
+                feetInput.value = (meters * 3.28084).toFixed(6);
+            } else {
+                feetInput.value = '';
+            }
+        });
+        
+        // feet to meters conversion
+        feetInput.addEventListener('input', function() {
+            const feet = parseFloat(this.value);
+            if (!isNaN(feet)) {
+                metersInput.value = (feet * 0.3048).toFixed(6);
+            } else {
+                metersInput.value = '';
+            }
+        });
+        
+        // Swap function
+        function swap() {
+            const temp = metersInput.value;
+            metersInput.value = feetInput.value;
+            feetInput.value = temp;
+        }
+        
+        // Auto-parse input
+        metersInput.addEventListener('paste', function(e) {
+            setTimeout(() => {
+                const text = this.value;
+                const match = text.match(/(\d+\.?\d*)\s*(m|meter)/i);
+                if (match) {
+                    this.value = match[1];
+                    this.dispatchEvent(new Event('input'));
+                }
+            }, 10);
+        });
+    </script>
+</body>
+</html>
