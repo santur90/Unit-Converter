@@ -229,3 +229,14 @@
     </div>
 </body>
 </html>
+
+<!-- GitHub Pages Diagnostic Script -->
+<script>
+    // This will log the current page's characteristics to help debug the display issue
+    console.log("Page Diagnostic Info:");
+    console.log("Current URL:", window.location.href);
+    console.log("Page Title:", document.title);
+    console.log("HTML Language:", document.documentElement.lang);
+    console.log("Has converter cards:", document.body.innerText.includes("Popular Converters") ? "YES" : "NO");
+    console.log("Has all-in-one style converter:", document.body.innerText.includes("language-switcher") ? "YES" : "NO");
+</script>
