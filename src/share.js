@@ -115,6 +115,8 @@ const shareButtons = {
     }
 };
 
+window.shareButtons = shareButtons;
+
 if (!document.getElementById('toast-animation')) {
     const style = document.createElement('style');
     style.id = 'toast-animation';
