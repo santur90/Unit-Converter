@@ -154,10 +154,35 @@
         
     </div>
     
-    <!-- Visitor Map Widget - Small, fixed bottom-left -->
-    <div style="position: fixed; bottom: 10px; left: 10px; z-index: 1000; background: white; padding: 5px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-        <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=EP1S8wkLjh8065HQCPL79zFjnoY0rjrhdSJTtDxbT1g&cl=ffffff"></script>
+    <!-- Visitor Map Widget - Collapsible -->
+    <div id="mapWidget" onclick="toggleMap()" style="position: fixed; bottom: 10px; left: 10px; z-index: 1000; background: white; padding: 5px; border-radius: 50%; width: 50px; height: 50px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;">
+        <div id="mapIcon" style="font-size: 40px; line-height: 40px; text-align: center;">🌍</div>
+        <div id="mapContent" style="display: none;">
+            <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=EP1S8wkLjh8065HQCPL79zFjnoY0rjrhdSJTtDxbT1g&cl=ffffff"></script>
+        </div>
     </div>
+    <script>
+        function toggleMap() {
+            const widget = document.getElementById('mapWidget');
+            const icon = document.getElementById('mapIcon');
+            const content = document.getElementById('mapContent');
+            const isExpanded = widget.style.width !== '50px';
+            
+            if (isExpanded) {
+                widget.style.width = '50px';
+                widget.style.height = '50px';
+                widget.style.borderRadius = '50%';
+                icon.style.display = 'block';
+                content.style.display = 'none';
+            } else {
+                widget.style.width = 'auto';
+                widget.style.height = 'auto';
+                widget.style.borderRadius = '8px';
+                icon.style.display = 'none';
+                content.style.display = 'block';
+            }
+        }
+    </script>
     
     <script>
         const celsiusInput = document.getElementById('celsius');
