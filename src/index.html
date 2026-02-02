@@ -100,10 +100,10 @@
         <footer class="footer">
             <p>&copy; 2026 Unit Converter. Made with ❤️</p>
             <div class="share-buttons">
-                <button class="share-btn" id="copy-link-btn" title="Copy Link" onclick="shareButtons.copyLink()">🔗</button>
-                <button class="share-btn" id="share-twitter-btn" title="Share on X" onclick="shareButtons.shareToTwitter()">𝕏</button>
-                <button class="share-btn" id="share-reddit-btn" title="Share on Reddit" onclick="shareButtons.shareToReddit()">📱</button>
-                <button class="share-btn" id="share-wechat-btn" title="Share on WeChat" onclick="shareButtons.shareToWeChat()">💬</button>
+                <button class="share-btn" id="copy-link-btn" title="Copy Link" onclick="window.shareButtons?.copyLink ? window.shareButtons.copyLink() : window.prompt('Copy link:', window.location.href)">🔗</button>
+                <button class="share-btn" id="share-twitter-btn" title="Share on X" onclick="window.shareButtons?.shareToTwitter ? window.shareButtons.shareToTwitter() : window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), '_blank')">𝕏</button>
+                <button class="share-btn" id="share-reddit-btn" title="Share on Reddit" onclick="window.shareButtons?.shareToReddit ? window.shareButtons.shareToReddit() : window.open('https://reddit.com/submit?url=' + encodeURIComponent(window.location.href), '_blank')">📱</button>
+                <button class="share-btn" id="share-wechat-btn" title="Share on WeChat" onclick="window.shareButtons?.shareToWeChat ? window.shareButtons.shareToWeChat() : window.open('https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' + encodeURIComponent(window.location.href), '_blank')">💬</button>
             </div>
         </footer>
     </div>
