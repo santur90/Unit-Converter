@@ -164,12 +164,12 @@ const translations = {
         emptyHistory: 'No history yet',
         confirmClear: 'Are you sure you want to clear all history?',
         rateUpdate: 'Rate Updated',
-        categories: {
         linkCopied: 'Link copied!',
         shareText: 'Check out this awesome Unit Converter!',
         scanToShare: 'Scan to share on WeChat',
         wechatHint: 'Scan this QR code with WeChat to share',
         close: 'Close',
+        categories: {
             length: 'Length',
             weight: 'Weight',
             temperature: 'Temperature',
@@ -230,12 +230,12 @@ const translations = {
         emptyHistory: 'Aucun historique',
         confirmClear: 'Voulez-vous vraiment effacer tout l\'historique?',
         rateUpdate: 'Taux mis à jour',
-        categories: {
         linkCopied: 'Lien copié!',
-        shareText: 'Découvrez ce convertisseur d'unités génial!',
+        shareText: 'Découvrez ce convertisseur d\'unités génial!',
         scanToShare: 'Scanner pour partager sur WeChat',
         wechatHint: 'Scannez ce code QR avec WeChat pour partager',
         close: 'Fermer',
+        categories: {
             length: 'Longueur',
             weight: 'Poids',
             temperature: 'Température',
@@ -296,12 +296,12 @@ const translations = {
         emptyHistory: 'Sin historial',
         confirmClear: '¿Estás seguro de que quieres borrar todo el historial?',
         rateUpdate: 'Tasa actualizada',
-        categories: {
         linkCopied: '¡Enlace copiado!',
         shareText: '¡Mira este increíble convertidor de unidades!',
         scanToShare: 'Escanear para compartir en WeChat',
         wechatHint: 'Escanea este código QR con WeChat para compartir',
         close: 'Cerrar',
+        categories: {
             length: 'Longitud',
             weight: 'Peso',
             temperature: 'Temperatura',
