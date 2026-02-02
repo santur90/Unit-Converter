@@ -237,12 +237,12 @@ class UnitConverterApp {
             const existingNote = document.getElementById('currency-update-note');
             
             if (existingNote) {
-                existingNote.textContent = `汇率更新: ${timeStr}`;
+                existingNote.textContent = `${i18n.t('rateUpdate')}: ${timeStr}`;
             } else {
                 const note = document.createElement('div');
                 note.id = 'currency-update-note';
                 note.className = 'currency-note';
-                note.textContent = `汇率更新: ${timeStr}`;
+                note.textContent = `${i18n.t('rateUpdate')}: ${timeStr}`;
                 this.resultBox = document.querySelector('.result-box');
                 if (this.resultBox && this.resultBox.parentNode) {
                     this.resultBox.parentNode.insertBefore(note, this.resultBox.nextSibling);

@@ -14,6 +14,7 @@ const translations = {
         clearHistory: '清空历史',
         emptyHistory: '暂无历史记录',
         confirmClear: '确认要清空所有历史记录吗?',
+        rateUpdate: '汇率更新',
         categories: {
             length: '长度',
             weight: '重量',
@@ -157,6 +158,7 @@ const translations = {
         clearHistory: 'Clear History',
         emptyHistory: 'No history yet',
         confirmClear: 'Are you sure you want to clear all history?',
+        rateUpdate: 'Rate Updated',
         categories: {
             length: 'Length',
             weight: 'Weight',
@@ -217,6 +219,7 @@ const translations = {
         clearHistory: 'Effacer l\'historique',
         emptyHistory: 'Aucun historique',
         confirmClear: 'Voulez-vous vraiment effacer tout l\'historique?',
+        rateUpdate: 'Taux mis à jour',
         categories: {
             length: 'Longueur',
             weight: 'Poids',
@@ -277,6 +280,7 @@ const translations = {
         clearHistory: 'Borrar historial',
         emptyHistory: 'Sin historial',
         confirmClear: '¿Estás seguro de que quieres borrar todo el historial?',
+        rateUpdate: 'Tasa actualizada',
         categories: {
             length: 'Longitud',
             weight: 'Peso',
