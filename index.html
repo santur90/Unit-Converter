@@ -9,187 +9,125 @@
     <link rel="canonical" href="https://santur90.github.io/Unit-Converter/">
     <meta name="google-site-verification" content="c18378261e0ca140">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%234CAF50'>⚙</text></svg>">
-    
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
-        
         header {
             text-align: center;
             color: white;
             margin-bottom: 60px;
         }
-        
         h1 {
             font-size: 48px;
             margin-bottom: 16px;
             font-weight: 700;
         }
-        
         .subtitle {
             font-size: 18px;
             opacity: 0.9;
         }
-        
         .section-title {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 30px;
             text-align: center;
+            color: white;
+            margin: 60px 0 40px 0;
+            font-size: 32px;
             font-weight: 600;
         }
-        
-        .converters-grid {
+        .converter-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
-        
         .converter-card {
             background: white;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 12px;
+            padding: 24px;
             text-decoration: none;
             color: inherit;
-            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
-        
         .converter-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 16px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
-        
-        .converter-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
-        .converter-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-        
-        .converter-desc {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.5;
-        }
-        
-        .all-converters-link {
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .btn-all-converters {
-            display: inline-block;
-            background: white;
+        .converter-card h3 {
             color: #667eea;
-            padding: 16px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
-            transition: background 0.3s, color 0.3s;
+            margin-bottom: 12px;
+            font-size: 24px;
         }
-        
-        .btn-all-converters:hover {
-            background: #f0f0f0;
+        .converter-card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
         }
-        
         footer {
             text-align: center;
             color: white;
-            margin-top: 60px;
+            margin-top: 80px;
             padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-            .converters-grid {
-                grid-template-columns: 1fr;
-            }
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Unit Converter</h1>
-            <p class="subtitle">Fast, accurate, and easy-to-use conversion tools</p>
+            <h1>🔄 Unit Converter</h1>
+            <p class="subtitle">Fast & Accurate Conversion Tools</p>
         </header>
         
         <h2 class="section-title">🔥 Popular Converters</h2>
         
-        <div class="converters-grid">
+        <div class="converter-grid">
             <a href="cm-to-inch.html" class="converter-card">
-                <span class="converter-icon">📏</span>
-                <h3 class="converter-title">cm to inch</h3>
-                <p class="converter-desc">Convert centimeters to inches instantly. 1 cm = 0.393701 in</p>
+                <h3>📏 Length</h3>
+                <p>Convert centimeters to inches and more</p>
             </a>
-            
             <a href="kg-to-lbs.html" class="converter-card">
-                <span class="converter-icon">⚖️</span>
-                <h3 class="converter-title">kg to lbs</h3>
-                <p class="converter-desc">Convert kilograms to pounds quickly. 1 kg = 2.20462 lbs</p>
+                <h3>⚖️ Weight</h3>
+                <p>Convert kilograms to pounds and more</p>
             </a>
-            
             <a href="celsius-to-fahrenheit.html" class="converter-card">
-                <span class="converter-icon">🌡️</span>
-                <h3 class="converter-title">°C to °F</h3>
-                <p class="converter-desc">Convert Celsius to Fahrenheit accurately. Formula: °F = (°C × 9/5) + 32</p>
+                <h3>🌡️ Temperature</h3>
+                <p>Convert Celsius to Fahrenheit and more</p>
             </a>
-            
             <a href="m-to-ft.html" class="converter-card">
-                <span class="converter-icon">📐</span>
-                <h3 class="converter-title">m to ft</h3>
-                <p class="converter-desc">Convert meters to feet with precision. 1 m = 3.28084 ft</p>
+                <h3>📐 Distance</h3>
+                <p>Convert meters to feet and more</p>
             </a>
-            
             <a href="km-to-miles.html" class="converter-card">
-                <span class="converter-icon">🛣️</span>
-                <h3 class="converter-title">km to miles</h3>
-                <p class="converter-desc">Convert kilometers to miles easily. 1 km = 0.621371 mi</p>
+                <h3>🛣️ Speed/Distance</h3>
+                <p>Convert kilometers to miles and more</p>
             </a>
-            
             <a href="all-in-one.html" class="converter-card">
-                <span class="converter-icon">🔧</span>
-                <h3 class="converter-title">All-in-One Converter</h3>
-                <p class="converter-desc">Access all 12 categories: length, weight, temperature, volume, and more</p>
+                <h3>🧮 All Converters</h3>
+                <p>Access all 12+ converter categories</p>
             </a>
         </div>
         
-        
+        <footer>
             <p>&copy; 2026 Unit Converter. All rights reserved.</p>
         </footer>
     </div>
     
-    <!-- Visitor Map Widget - Collapsible -->
+    <!-- Map Widget - Collapsible Earth Icon -->
     <div id="mapWidget" onclick="toggleMap(event)" style="position: fixed; bottom: 10px; left: 10px; z-index: 1000; background: white; padding: 5px; border-radius: 50%; width: 50px; height: 50px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.2); cursor: pointer; transition: all 0.3s ease;">
         <div id="mapIcon" style="font-size: 40px; line-height: 40px; text-align: center;">🌍</div>
         <div id="mapContent" style="display: none; pointer-events: none;">
@@ -200,12 +138,10 @@
         function toggleMap(event) {
             event.preventDefault();
             event.stopPropagation();
-            
             const widget = document.getElementById('mapWidget');
             const icon = document.getElementById('mapIcon');
             const content = document.getElementById('mapContent');
             const isExpanded = widget.style.width !== '50px';
-            
             if (isExpanded) {
                 widget.style.width = '50px';
                 widget.style.height = '50px';
@@ -227,16 +163,18 @@
         <p style="color: #666; font-size: 11px; margin: 0 0 5px 0;">☕ Support</p>
         <img src="Tip.png" alt="Donate" style="width: 100px; height: 100px; border-radius: 6px; display: block;">
     </div>
+
+    <!-- GitHub Pages Diagnostic Script -->
+    <script>
+        console.log("=== PAGE DIAGNOSTIC INFO ===");
+        console.log("Current URL:", window.location.href);
+        console.log("Page Title:", document.title);
+        console.log("HTML Language:", document.documentElement.lang);
+        console.log("Body HTML Length:", document.body.innerHTML.length);
+        console.log("Has 'Popular Converters':", document.body.innerText.includes("Popular Converters") ? "✓ YES" : "✗ NO");
+        console.log("Has 'All Converters':", document.body.innerText.includes("All Converters") ? "✓ YES" : "✗ NO");
+        console.log("Has language-switcher:", document.body.innerText.includes("language-switcher") ? "✗ YES (WRONG PAGE)" : "✓ NO (CORRECT PAGE)");
+        console.log("=== END DIAGNOSTIC ===");
+    </script>
 </body>
 </html>
-
-<!-- GitHub Pages Diagnostic Script -->
-<script>
-    // This will log the current page's characteristics to help debug the display issue
-    console.log("Page Diagnostic Info:");
-    console.log("Current URL:", window.location.href);
-    console.log("Page Title:", document.title);
-    console.log("HTML Language:", document.documentElement.lang);
-    console.log("Has converter cards:", document.body.innerText.includes("Popular Converters") ? "YES" : "NO");
-    console.log("Has all-in-one style converter:", document.body.innerText.includes("language-switcher") ? "YES" : "NO");
-</script>
