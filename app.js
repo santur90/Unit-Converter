@@ -13,8 +13,11 @@ class UnitConverterApp {
         this.setupEventListeners();
         this.initLanguage();
         
-        // 恢复上次的类别和单位
-        const category = this.preferences.category || 'length';
+        // 检查URL hash来确定初始类别
+        const hashCategory = window.location.hash.slice(1); // 移除 #
+        const validCategories = ['length', 'weight', 'temperature', 'volume', 'area', 'speed', 'dataStorage', 'fuelMileage', 'power', 'pressure', 'time', 'currency'];
+        const category = validCategories.includes(hashCategory) ? hashCategory : (this.preferences.category || 'length');
+        
         this.setCategory(category);
         
         this.renderHistory();
