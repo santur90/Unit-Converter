@@ -272,7 +272,7 @@ const converters = {
             const inUSD = value / defaultRates[from];
             return inUSD * defaultRates[to];
         },
-        note: '注：使用实时汇率数据，每小时自动更新'
+        note: '注：使用实时汇率数据，每10分钟自动更新'
     }
 };
 

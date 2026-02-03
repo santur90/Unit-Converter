@@ -10,7 +10,8 @@ class CurrencyAPI {
         this.rates = null;
         this.lastUpdate = null;
         this.baseCurrency = 'USD';
-        this.cacheTimeout = 60 * 60 * 1000; // 1小时缓存
+        // 缓存时间: 10分钟 (更接近实时更新)
+        this.cacheTimeout = 10 * 60 * 1000;
         
         // 从localStorage加载缓存的汇率
         this.loadCachedRates();
